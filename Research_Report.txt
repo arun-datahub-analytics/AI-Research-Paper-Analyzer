@@ -1,0 +1,19 @@
+The Transformer is better than Recurrent Neural Networks (RNNs) due to its superior quality, increased parallelizability, and reduced training time, achieved by entirely dispensing with recurrence.
+
+**1. Direct Answer:**
+The Transformer is better than RNNs because it achieves superior translation quality, is significantly more parallelizable, and requires substantially less training time. This is accomplished by replacing the inherently sequential computation of RNNs with an architecture based solely on attention mechanisms, thus removing the fundamental constraint of sequential processing.
+
+**2. Explanation:**
+1.  **Superior Quality:** The Transformer achieves higher performance in sequence transduction tasks, specifically machine translation, setting new state-of-the-art BLEU scores that surpass existing best results, including those from models based on RNNs or their ensembles.
+2.  **Increased Parallelization:** Recurrent models process sequences sequentially, preventing parallel computation within training examples. The Transformer's attention-based architecture, free from recurrence, allows for significantly more parallelization, which is crucial for handling longer sequence lengths efficiently.
+3.  **Reduced Training Time:** As a direct consequence of its enhanced parallelization capabilities, the Transformer can be trained much faster and more cost-effectively than RNN-based models, achieving state-of-the-art results in a fraction of the time.
+4.  **Dispensing with Sequential Computation:** RNNs are constrained by their sequential nature, requiring computation to factor along symbol positions. The Transformer removes this constraint, resulting in a constant number of sequential operations per layer (O(1)) compared to RNNs, where it is proportional to the sequence length (O(n)). This also facilitates learning dependencies across distant positions more effectively by reducing the maximum path length to a constant.
+
+**3. Supporting Evidence from the Paper:**
+*   "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring signiﬁcantly less time to train." (Abstract)
+*   "Our model achieves 28.4 BLEU on the WMT 2014 English- to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.0 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature." (Abstract)
+*   "Recurrent models typically factor computation along the symbol positions of the input and output sequences... This inherently sequential nature precludes parallelization within training examples... The fundamental constraint of sequential computation, however, remains." (Introduction)
+*   "In this work we propose the Transformer, a model architecture eschewing recurrence and instead relying entirely on an attention mechanism to draw global dependencies between input and output. The Transformer allows for signiﬁcantly more parallelization and can reach a new state of the art in translation quality after being trained for as little as twelve hours on eight P100 GPUs." (Introduction)
+*   Table 1 illustrates:
+    *   "Sequential Operations: Self-Attention O(1)" vs. "Recurrent O(n)"
+    *   "Maximum Path Length: Self-Attention O(1)" vs. "Recurrent O(n)"
